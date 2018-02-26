@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>React JS</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://unpkg.com/react@15.3.1/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+    
+    
+</head>
+<body>
+    <div id="ex"></div>
+    <div id="app"></div>
+    <div id="root"></div>
+    <div id="big"></div>
+    <div id="obras"></div>
+    <script type="text/babel" >
+
+    ReactDOM.render(
+    <h1>Hello, world!</h1>,
+    document.getElementById('root')
+    );  
+
+    function formatName(user) {
+        return user.firstname + " " + user.lastname;
+    }
+    
+    const user = {
+        firstname:"general",
+        lastname:"kenobi"
+    }
+    
+    const element= (
+        <h1> hello there, {formatName(user)}!</h1>
+    );
+
+    ReactDOM.render(
+        element,document.getElementById("app")
+    );
+
+    const Avatar = props => <img src={props.user.img} alt={props.user.name}/>;
+    const UserName = props => <p>{props.user.name}</p>;
+
+    const User = props => {
+        return (
+            <div className="user-item">
+            <Avatar user={props.user} />
+            <UserName user={props.user}/>
+            </div>
+        )
+    };
+
+    const users = {
+        name:"big boss",
+        img:"boss.png"
+
+    };
+
+    ReactDOM.render(<User user={users} />, document.getElementById("big"));
+
+    
+    const pin=[
+        {
+            name:"girasoles",
+            img:"girasoles.jpg"
+        },
+
+        {
+            name:"cosechando",
+            img:"cosechando.jpg"
+        },
+
+        {
+            name:"genteDurmiendo",
+            img:"genteDurmiendo.jpg"
+        }
+    ];
+
+    const Pinlist = props =>{
+        const pintlist= props.list.map((user,i)=> <User user={user} key={i}/>);
+        return (
+            <div className="user-list">
+            {pintlist}
+            </div>
+        )
+    };
+
+    ReactDOM.render(<Pinlist list={pin}/>, document.getElementById("obras"));
+
+	</script>
+</body>
+</html>
