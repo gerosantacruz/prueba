@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title>estilos</title>
+</head>
+<body>
+    <h1 class="titulo">Vicent Van Gogh</h1>
+    <h2 class="titulo" style="font-size:25px">La vida tomultuosa de uno de los
+        grandes pintores de la historia</h2>
+    <form class="arriba">
+    <div class="arriba" >
+        <ul>
+        <li><a class="arriba" href="pag_cambios.htm">Inicio</a></li>
+        <li><a class="arriba" href="2pag.htm">Historia</a></li>
+        <li><a class="arriba" href="#historia">Obras</a></li>
+        <li><a class="arriba" href="#historia">Estilos</a></li>
+        <li><a class="arriba" href="#historia">Multimedia</a></li>
+        </ul>
+    </div>
+    </form>
+
+ <div ng-app="myapp" ng-controller="mictrl">
+     <img src="noche_estrellada.jpg" alt="Noche estrellada" align="left"> 
+     <button ng-click="mitext()">mas info</button><br>
+     <p ng-click="mitext()" class="bloqueDeTexto">{{info}}</p>
+ </div>
+<script>
+    var txt= " La noche estrellada (en neerlandés De sterrennacht) es la obra maestra del pintor postimpresionista Vincent van Gogh. \
+    El cuadro muestra la vista exterior durante la noche desde la ventana del cuarto del sanatorio de Saint-Rémy-de-Provence,\
+    donde se recluyó hacia el final de su vida.Sin embargo, la obra fue pintada durante el día, de memoria. Data de mediados de 1889,\
+    trece meses antes de la muerte de van Gogh. Desde 1941 forma parte de la colección permanente del Museo de Arte Moderno de Nueva York.\
+    Considerado como el magnum opus de van Gogh, el cuadro ha sido reproducido en numerosas ocasiones, siendo una de sus obras más conocidas.\
+    Usó óleo humedecido y pinceles finos.";
+    var app=angular.module("myapp",[]);
+    app.controller("mictrl", function($scope){
+        $scope.info="";
+        $scope.mitext= function(){
+            $scope.info = txt;
+        }
+    });
+
+
+
+</script>
+
+
+</body>
+
+</html>
