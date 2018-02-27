@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title>estilos</title>
+</head>
+<body>
+    <h1 class="titulo">Vicent Van Gogh</h1>
+    <h2 class="titulo" style="font-size:25px">La vida tomultuosa de uno de los
+        grandes pintores de la historia</h2>
+    <form class="arriba">
+    <div class="arriba" >
+        <ul>
+        <li><a class="arriba" href="pag_cambios.htm">Inicio</a></li>
+        <li><a class="arriba" href="2pag.htm">Historia</a></li>
+        <li><a class="arriba" href="#historia">Obras</a></li>
+        <li><a class="arriba" href="#historia">Estilos</a></li>
+        <li><a class="arriba" href="#historia">Multimedia</a></li>
+        </ul>
+    </div>
+    </form>
+ <h1>Postimpresionismo</h1>
+<div ng-app="myapp" class="float_center">
+    
+        
+        <div ng-controller="mictrl">
+        <img src="noche_estrellada.jpg" alt="Noche estrellada"  class="galeria"></div>
+        <div ng-controller="mictrl">
+        <p ng-click="mitext()" class="bloqueDeTexto" ng-init="txt" ng-hide="myVar" >{{info[0]}}</p>
+        <button ng-click="mitext()" class="botondelista" >mas info</button>
+        </div>
+        
+        
+        <div ng-controller="mictrl">
+        <img src="vangogh.jpg" alt="Noche estrellada"  class="galeria"> 
+        <button ng-click="mitext()">mas info</button>
+        <p ng-click="mitext()" class="bloqueDeTexto" ng-init="txt" ng-hide="myVar">{{info[2]}}</p>
+        </div>
+      
+    
+         <div ng-controller="mictrl">
+            <img src="girasoles.Galeria.jpg" alt="Noche estrellada"  class="galeria"> 
+            <button ng-click="mitext()">mas info</button>
+            <p ng-click="mitext()" class="bloqueDeTexto" ng-init="txt" ng-hide="myVar">{{info[3]}}</p>
+         </div>
+    
+            <div ng-controller="mictrl">
+            <img src="patatasGaleria.jpg" alt="Noche estrellada" class="galeria"> 
+            <button ng-click="mitext()">mas info</button>
+            <p ng-click="mitext()" class="bloqueDeTexto" ng-init="txt" ng-hide="myVar" >{{info[1]}}</p>
+            </div>
+        
+        
+    
+</div>
+        
+    
+
+<script>
+   
+    var txt= [" La noche estrellada (en neerlandés De sterrennacht) es la obra maestra del pintor postimpresionista Vincent van Gogh. \
+    El cuadro muestra la vista exterior durante la noche desde la ventana del cuarto del sanatorio de Saint-Rémy-de-Provence,\
+    donde se recluyó hacia el final de su vida.Sin embargo, la obra fue pintada durante el día, de memoria. Data de mediados de 1889,\
+    trece meses antes de la muerte de van Gogh. Desde 1941 forma parte de la colección permanente del Museo de Arte Moderno de Nueva York.\
+    Considerado como el magnum opus de van Gogh, el cuadro ha sido reproducido en numerosas ocasiones, siendo una de sus obras más conocidas.\
+    Usó óleo humedecido y pinceles finos.",
+    "Los comedores de patatas, Los comedores de papa o Los campesinos comiendo patatas (Aardappeleters en neerlandés) \
+    es un cuadro del pintor Vincent van Gogh, que creó en abril de 1885 mientras residía en Nuenen, Países Bajosurante el mes de marzo e inicios de abril del año 1885,\
+    el autor preparó bosquejos relativos a la obra. Ésta la inició el 13 de abril del mismo para dejarla casi terminada a inicios del mes de mayo.\
+    Los cambios menores los finalizó más tarde en 1885, con pequeñas pinceladas.",
+    "Vincent van Gogh pintó más de 30 autorretratos entre los años 1886 y 1889. Su colección de autorretratos \
+    lo pone entre los pintores de autorretratos más prolíficos de todos los tiempos. Van Gogh usaba el retrato como un método de introspección, \
+    un método para hacer dinero y un método de desarrollar sus habilidades como un artista",
+    "Los girasoles (en francés, Les Tournesols, en neerlandés, Zonnebloemen) es una serie de cuadros al óleo realizados por el pintor holandés \
+    Vincent van Gogh. De la serie hay tres cuadros similares con catorce girasoles en un jarrón, dos con doce girasoles, uno con tres y otro con cinco."];
+    
+    
+    
+    
+    var app=angular.module("myapp",[]);
+    app.controller("mictrl", function($scope){
+        $scope.myVar = true;
+        $scope.info="";
+        $scope.mitext= function(){
+            $scope.myVar = !$scope.myVar;
+            $scope.info=txt;
+            
+        }
+    });
+    
+
+
+
+</script>
+
+
+</body>
+
+</html>
