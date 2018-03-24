@@ -85,6 +85,13 @@ var app= angular.module("miApp",[]);
                 }
         }
  */
+        
+     /*$scope.setTotal=function(cart){
+                if(cart){
+                 $scope.carts.forEach(function(cart){
+                  $scope.total +=cart.p_price * cart.p_cant;
+                 console.log($scope.total)   
+     });*/
 
         $scope.removePart=function(cart){
             if(cart != null){
