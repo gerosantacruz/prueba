@@ -73,8 +73,7 @@ var app= angular.module("miApp",[]);
         
         $scope.setTotal=function(carts){
             if($scope.carts.indexOf(carts), 1){
-                 var sum=0;
-                 sum += carts.price * carts.cant;
+                 $scope.total += carts.price * carts.cant;
                 }
     }; 
   
