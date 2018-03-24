@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>shooping list</title>
+</head>
+<style>
+	.box{
+	display: inline-block;
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    border: 3px solid #73AD21;
+	}
+	.total{
+		text-align: center;
+		width: 250px;
+		height: auto;
+		margin:20px;
+		border: 5px solid red;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="cartJs.js"></script>
+<body ng-controller="micontroller">
+	<div>
+		<h1>Products</h1>
+		<hr style="border: top 1px groovy #ccc">
+		<div id="product" ng-repeat="product in products" class="box">
+			<ul>
+					<h3>Id: {{ product.id}}</h3>
+					<h5>{{product.name}}</h5>
+					<p>{{product.descr}}</p>
+
+					<div><label>price: ${{product.price}}</label></div>
+					<button ng-click="add_cart(product)">Buy</button>
+
+			</ul>
+			
+		</div>
+	</div>
+</div>
+<br>
+
+
+	<div class="total">
+		<h1>my cart</h1>
+		<table >
+			<th>
+				<tr>
+					<th>product</th>
+					<th>price</th>
+				</tr>
+			</th>
+			<tbody>
+				<tr ng-repeat="cart in carts" ng-init="setTotal(cart)">
+					<td>{{cart.name}}</td>
+					<td><label>{{cart.price}}</label></td>
+					<td>{{cart.cant}}</td>
+					<td><button type="button" ng-click="removePart(cart)" >X</button></td>
+				</tr>
+				<tr>
+					<td> Total</td>
+					<td>{{total}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h1>total= {{total}}</h1>
+
+	</div>
+
+
+		
+</body>
+</html>
